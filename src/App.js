@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Child from './Child';
-
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -31,7 +31,7 @@ class App extends Component {
       ]
       }
   }
-  Delete=()=>{
+   Delete=()=>{
     let tempItem = this.state.product;
     tempItem.splice(this.state.index,1);
     
@@ -40,7 +40,7 @@ class App extends Component {
 
     handleImage =(event)=>{
       console.log(event.target.value)
-
+      this.setState({image:event.target.value})
     }
 
      handleTitle =(event)=>{
@@ -62,7 +62,7 @@ class App extends Component {
     const myItem = this.state.product;
     myItem.concat({image,title,description});
     
-    this.setState({product:myItem});
+    this.setState({product:this.state.product.concat({image,title,description})});
    }
 
   render() {
